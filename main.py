@@ -1,12 +1,4 @@
 import tweepy
-import json
-
-# import configparser
-# import pandas as pd
-
-# read configs
-# config = configparser.ConfigParser()
-# config.read('config.ini')
 
 api_key = "eaLFxqln7SellQfGri9cccKla"
 api_key_secret = "3p0BmQMeoDtbfEqvrcKEvDhiACHYi865Z17y7aVprVssjqOBCE"
@@ -30,11 +22,6 @@ tweets = api.user_timeline(screen_name=userID,
                            # otherwise only the first 140 words are extracted
                            tweet_mode = 'extended'
                            )
-# print()
-
-# json_object = json.loads(tweets)
-# print(json.dumps(json_object, indent= 1))
-# print(json.dumps(json_object, indent = 3))
 
 ret= {}
 
@@ -49,41 +36,3 @@ for tweet in tweets:
         # print(word)
 
 print(ret['Arjun'])
-
-# print(tweet.entities['hashtags'] for tweet in tweets)
-
-
-
-
-# # user tweets
-# user = 'veritasium'
-# limit=10
-#
-# tweets = tweepy.Cursor(api.user_timeline, screen_name=user, count=20, tweet_mode='extended').items(limit)
-#
-# tweets = api.user_timeline(screen_name=user, count=limit, tweet_mode='extended')
-#
-# # create DataFrame
-# # columns = ['User', 'Tweet']
-# data = []
-#
-# for tweet in tweets:
-#     data.append([tweet.user.screen_name, tweet.full_text])
-#
-# print(tweets)
-#
-# # df = pd.DataFrame(data, columns=columns)
-#
-# # print(df)
-
-
-# # the ID of the status
-# id = 1272771459249844224
-#
-# # fetching the status
-# user = api.get_status(id)
-#
-# # fetching the created_at attribute
-# created_at = status.created_at
-
-# print("The status was created at : " + str(created_at))
