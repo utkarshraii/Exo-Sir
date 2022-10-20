@@ -23,7 +23,7 @@ usernameList=[]
 for q in query:
     tweets = tweepy.Cursor(api.search_tweets,
                            q, lang="en",
-                           tweet_mode='extended').items(20)
+                           tweet_mode='extended').items(30)
     list_tweets = [tweet for tweet in tweets]
     for tweet in list_tweets:
         usernameList.append(tweet.user.screen_name)
