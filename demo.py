@@ -7,6 +7,8 @@ access_token_secret = "9CJ8MiX4i4LlwRgwrDMKbBZlXVhANSHGJ35dAdB13R3L2"
 auth = tweepy.OAuthHandler(api_key, api_key_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
+api.wait_on_rate_limit= True
+api.wait_on_rate_limit_notify= True
 
 india_woeid=23424848
 trend_result=api.get_place_trends(india_woeid)
@@ -22,8 +24,7 @@ usernameList=[]
 
 for q in query:
     tweets = tweepy.Cursor(api.search_tweets,
-                           q, lang="en",
-                           tweet_mode='extended').items(30)
+                           q, lang="en").items(200)
     list_tweets = [tweet for tweet in tweets]
     for tweet in list_tweets:
         usernameList.append(tweet.user.screen_name)
